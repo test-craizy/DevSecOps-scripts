@@ -7,12 +7,18 @@ on:
         description: "Nombre del componente a construir"
         type: string
         required: true
+      token:
+        description: "Token de acceso al repositorio"
+        type: secret
+        required: true
+
 
 jobs:
   build:
     uses: ./.github/workflows/workflow-aks-build.yaml
     with:
       componente: ${{ inputs.componente }}
+      token: ${{ inputs.token }}
 
   deploy:
     uses: ./.github/workflows/workflow-aks-deploy.yaml
