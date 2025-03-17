@@ -27,7 +27,7 @@ jobs:
           path: devsecops-scripts  
           ref: main
           fetch-depth: 0
-      - name: Set Environment Variables
+      - name: Set parameters
         run: |
           echo "NOMBRE=$(echo $JSON_PAYLOAD | jq -r '.nombre')" >> $GITHUB_ENV
           echo "NAMESPACE=$(echo $JSON_PAYLOAD | jq -r '.namespace')" >> $GITHUB_ENV
@@ -90,19 +90,19 @@ jobs:
           # Set the manifests folder name
           echo "manifestsFolderName=manifests" >> $GITHUB_ENV
 
-      - name: Verificar Variables de Entorno
+      - name: Echo Parameters
         run: |
-          echo "Nombre: $NOMBRE"
-          echo "Namespace: $NAMESPACE"
-          echo "AKS: $AKS"
-          echo "Squad: $SQUAD"
-          echo "Repo Validation: $REPO_VALIDATION"
-          echo "Folder Validation: $FOLDER_VALIDATION"
-          echo "Smoke File: $SMOKE_FILE"
-          echo "Acceptance File: $ACCEPTANCE_FILE"
-          echo "No AG: $NO_AG"
-          echo "Service Port: $SERVICE_PORT"
-          
+          echo "Nombre: ${{ env.NOMBRE }}"
+          echo "Namespace: ${{ env.NAMESPACE }}"
+          echo "AKS: ${{ env.AKS }}"
+          echo "Squad: ${{ env.SQUAD }}"
+          echo "Repo Validation: ${{ env.REPO_VALIDATION }}"
+          echo "Folder Validation: ${{ env.FOLDER_VALIDATION }}"
+          echo "Smoke File: ${{ env.SMOKE_FILE }}"
+          echo "Acceptance File: ${{ env.ACCEPTANCE_FILE }}"
+          echo "No AG: ${{ env.NO_AG }}"
+          echo "Service Port: ${{ env.SERVICE_PORT }}"
+
       - name: Echo Environment Variables
         run: |
           echo "absolutePathFolder=${{ env.absolutePathFolder }}"
