@@ -1,3 +1,6 @@
+echo "Setting parameters..."
+componente=$1
+
 echo "NOMBRE=$(echo $componente | jq -r '.nombre')" >> $GITHUB_ENV
 echo "NAMESPACE=$(echo $componente | jq -r '.namespace')" >> $GITHUB_ENV
 echo "AKS=$(echo $componente | jq -r '.aks')" >> $GITHUB_ENV
