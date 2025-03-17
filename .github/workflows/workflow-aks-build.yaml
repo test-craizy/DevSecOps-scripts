@@ -27,8 +27,8 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Debug - Verificar estructura de archivos
-        run: ls -R DevSecOps-scripts/
-        
+        run: ls -R
+
       - name: Build Process
         run: DevSecOps-scripts/scripts/build/build.sh ${{ inputs.componente }}
        
