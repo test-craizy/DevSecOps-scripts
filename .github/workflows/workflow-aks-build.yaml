@@ -119,7 +119,7 @@ jobs:
           echo "certificadoAG=${{ env.certificadoAG }}"
           echo "certificadoCA=${{ env.certificadoCA }}"
           echo "manifestsFolderName=${{ env.manifestsFolderName }}"
-          
+
       - name: run build
-        run: chmod +x ${{ env.AKS_SCRIPT_PATH }}/aks/build.sh && ${{ env.AKS_SCRIPT_PATH }}//aks/build.sh
+        run: chmod +x ${{ env.AKS_SCRIPT_PATH }}/aks/build/build.sh && ${{ env.AKS_SCRIPT_PATH }}//aks/build/build.sh
        
