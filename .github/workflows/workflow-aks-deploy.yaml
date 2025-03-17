@@ -21,32 +21,32 @@ on:
         type: string
       repoValidation:
         description: 'Repositorio de validaciones'
-        required: false
+        required: true
         type: string
         default: ''
       folderValidation:
         description: 'Carpeta de validaciones'
-        required: false
+        required: true
         type: string
         default: ''
       smokeFile:
         description: 'Nombre del archivo de pruebas de humo'
-        required: false
+        required: true
         type: string
         default: 'smoke_test.postman_collection.json'
       acceptanceFile:
         description: 'Nombre del archivo de pruebas de aceptación'
-        required: false
+        required: true
         type: string
         default: 'acceptance_test.postman_collection.json'
       noAG:
         description: 'Indica si no se utiliza API Gateway'
-        required: false
+        required: true
         type: boolean
         default: false
       servicePort:
         description: 'Puerto del servicio'
-        required: false
+        required: true
         type: string
         default: '8080'
       certificate_hv:
