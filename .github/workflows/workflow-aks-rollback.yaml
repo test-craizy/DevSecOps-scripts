@@ -15,5 +15,17 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
+      - name: Checkout Repository (DevSecOps-scripts)
+        uses: actions/checkout@v3
+        with:
+          repository: test-craizy/DevSecOps-scripts
+          token: ${{ secrets.gh_token }}
+          path: devsecops-scripts  
+          ref: main
+          fetch-depth: 0
+          
+      - name: Grant Execute Permissions
+        run: chmod +x devsecops-scripts/scripts/rollback/rollback.sh
+
       - name: Build Process
-        run: ./scripts/rollback/rollback.sh ${{ inputs.componente }}
+        run: devsecops-scripts/scripts/rollback/rollback.sh ${{ inputs.componente }}

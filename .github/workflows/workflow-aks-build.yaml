@@ -27,10 +27,7 @@ jobs:
           path: devsecops-scripts  
           ref: main
           fetch-depth: 0
-
-      - name: Debug - Verificar estructura de archivos
-        run: ls -R
-
+          
       - name: Grant Execute Permissions to Build Script
         run: chmod +x devsecops-scripts/scripts/build/build.sh
 
