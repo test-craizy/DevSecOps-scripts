@@ -22,6 +22,8 @@ jobs:
           repository: test-craizy/DevSecOps-scripts
           token: ${{ secrets.gh_token }}
           path: DevSecOps-scripts
+          ref: main
+          fetch-depth: 0
 
       - name: Checkout Code
         uses: actions/checkout@v3
