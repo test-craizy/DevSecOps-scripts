@@ -7,7 +7,10 @@ on:
         description: "Nombre del componente a construir"
         type: string
         required: true
-
+    secrets:
+      gh_token:
+        description: "GitHub Token para autenticación"
+        required: true
 jobs:
   deploy:
     runs-on: ubuntu-latest
