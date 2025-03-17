@@ -1,0 +1,1 @@
+echo "run validator.sh script successfully"

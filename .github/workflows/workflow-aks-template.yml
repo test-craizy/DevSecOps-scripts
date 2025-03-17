@@ -1,0 +1,27 @@
+name: AKS Workflow Template
+
+on:
+  workflow_call:
+    inputs:
+      componente:
+        description: "Nombre del componente a construir"
+        type: string
+        required: true
+
+jobs:
+  build:
+    uses: ./.github/workflows/workflow-aks-build.yaml
+    with:
+      componente: "build-component"
+
+  deploy:
+    uses: ./.github/workflows/workflow-aks-deploy.yaml
+    needs: build
+    with:
+      componente: "deploy-component"
+
+  validate:
+    uses: ./.github/workflows/workflow-aks-validator.yaml
+    needs: deploy
+    with:
+      componente: "validate-component"
