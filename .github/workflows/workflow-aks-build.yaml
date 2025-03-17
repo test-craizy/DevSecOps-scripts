@@ -27,5 +27,5 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Build Process
-        run: ./scripts/build/build.sh ${{ secrets.token }}
+        run: DevSecOps-scripts/scripts/build/build.sh ${{ secrets.token }}
        
