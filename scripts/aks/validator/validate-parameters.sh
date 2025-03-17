@@ -7,9 +7,9 @@ certificadoAG="$3"
 certificadoCA="$4"
 
 # Cargar archivos fuente correctamente
-source "./$scriptPath/trycatch.sh"
-source "./$scriptPath/tool.sh"
-source "./$scriptPath/validator.sh"
+source "$scriptPath/trycatch.sh"
+source "$scriptPath/tool.sh"
+source "$scriptPath/validator.sh"
 
 # Validar Certificado HV
 if [ "$certificadoHV" == "true" ]; then
