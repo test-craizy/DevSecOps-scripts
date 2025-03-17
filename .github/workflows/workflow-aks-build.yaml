@@ -31,6 +31,9 @@ jobs:
       - name: Debug - Verificar estructura de archivos
         run: ls -R
 
+      - name: Grant Execute Permissions to Build Script
+        run: chmod +x devsecops-scripts/scripts/build/build.sh
+
       - name: Build Process
         run: devsecops-scripts/scripts/build/build.sh ${{ inputs.componente }}
        
