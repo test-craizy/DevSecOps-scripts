@@ -5,7 +5,7 @@ on:
     inputs:
       componente:
         description: "Nombre del componente a construir"
-        type: object
+        type: string
         required: true
     secrets:
       gh_token:
