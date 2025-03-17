@@ -87,11 +87,11 @@ jobs:
           ref: main
           fetch-depth: 0
 
-      - name: Set parameters
-        run: chmod +x devsecops-scripts/utils/set-parameters.sh && devsecops-scripts/utils/set-parameters.sh '${{ inputs.componente }}'
+      # - name: Set parameters
+      #   run: chmod +x devsecops-scripts/utils/set-parameters.sh && devsecops-scripts/utils/set-parameters.sh '${{ inputs.componente }}'
 
       - name: Set Environment Variables
-        run: chmod +x devsecops-scripts/utils/set-environment.sh && devsecops-scripts/utils/set-environment.sh 
+        run: chmod +x devsecops-scripts/utils/set-environment.sh && devsecops-scripts/utils/set-environment.sh '' '${{ inputs.certificate_hv}}' '${{ inputs.certificate_ag }}' '${{ inputs.certificate_ca }}' 
           
 
       - name: Echo Parameters
