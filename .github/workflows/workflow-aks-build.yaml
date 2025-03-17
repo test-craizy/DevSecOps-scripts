@@ -93,19 +93,18 @@ jobs:
       - name: Set Environment Variables
         run: chmod +x devsecops-scripts/utils/set-environment.sh && devsecops-scripts/utils/set-environment.sh '' '${{ inputs.certificate_hv}}' '${{ inputs.certificate_ag }}' '${{ inputs.certificate_ca }}' 
           
-
-      - name: Echo Parameters
-        run: |
-          echo "Nombre: ${{ env.NOMBRE }}"
-          echo "Namespace: ${{ env.NAMESPACE }}"
-          echo "AKS: ${{ env.AKS }}"
-          echo "Squad: ${{ env.SQUAD }}"
-          echo "Repo Validation: ${{ env.REPO_VALIDATION }}"
-          echo "Folder Validation: ${{ env.FOLDER_VALIDATION }}"
-          echo "Smoke File: ${{ env.SMOKE_FILE }}"
-          echo "Acceptance File: ${{ env.ACCEPTANCE_FILE }}"
-          echo "No AG: ${{ env.NO_AG }}"
-          echo "Service Port: ${{ env.SERVICE_PORT }}"
+      # - name: Echo Parameters
+      #   run: |
+      #     echo "Nombre: ${{ env.NOMBRE }}"
+      #     echo "Namespace: ${{ env.NAMESPACE }}"
+      #     echo "AKS: ${{ env.AKS }}"
+      #     echo "Squad: ${{ env.SQUAD }}"
+      #     echo "Repo Validation: ${{ env.REPO_VALIDATION }}"
+      #     echo "Folder Validation: ${{ env.FOLDER_VALIDATION }}"
+      #     echo "Smoke File: ${{ env.SMOKE_FILE }}"
+      #     echo "Acceptance File: ${{ env.ACCEPTANCE_FILE }}"
+      #     echo "No AG: ${{ env.NO_AG }}"
+      #     echo "Service Port: ${{ env.SERVICE_PORT }}"
 
       - name: Echo Environment Variables
         run: |
