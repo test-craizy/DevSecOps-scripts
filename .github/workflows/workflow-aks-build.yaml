@@ -27,7 +27,19 @@ jobs:
           path: devsecops-scripts  
           ref: main
           fetch-depth: 0
-      
+      - name: Set Environment Variables
+        run: |
+          echo "NOMBRE=$(echo $JSON_PAYLOAD | jq -r '.nombre')" >> $GITHUB_ENV
+          echo "NAMESPACE=$(echo $JSON_PAYLOAD | jq -r '.namespace')" >> $GITHUB_ENV
+          echo "AKS=$(echo $JSON_PAYLOAD | jq -r '.aks')" >> $GITHUB_ENV
+          echo "SQUAD=$(echo $JSON_PAYLOAD | jq -r '.squad')" >> $GITHUB_ENV
+          echo "REPO_VALIDATION=$(echo $JSON_PAYLOAD | jq -r '.repoValidation')" >> $GITHUB_ENV
+          echo "FOLDER_VALIDATION=$(echo $JSON_PAYLOAD | jq -r '.folderValidation')" >> $GITHUB_ENV
+          echo "SMOKE_FILE=$(echo $JSON_PAYLOAD | jq -r '.smokeFile')" >> $GITHUB_ENV
+          echo "ACCEPTANCE_FILE=$(echo $JSON_PAYLOAD | jq -r '.acceptanceFile')" >> $GITHUB_ENV
+          echo "NO_AG=$(echo $JSON_PAYLOAD | jq -r '.noAG')" >> $GITHUB_ENV
+          echo "SERVICE_PORT=$(echo $JSON_PAYLOAD | jq -r '.servicePort')" >> $GITHUB_ENV
+
       - name: Set Environment Variables
         run: |
           # Set the absolute path to the folder
@@ -78,6 +90,19 @@ jobs:
           # Set the manifests folder name
           echo "manifestsFolderName=manifests" >> $GITHUB_ENV
 
+      - name: Verificar Variables de Entorno
+        run: |
+          echo "Nombre: $NOMBRE"
+          echo "Namespace: $NAMESPACE"
+          echo "AKS: $AKS"
+          echo "Squad: $SQUAD"
+          echo "Repo Validation: $REPO_VALIDATION"
+          echo "Folder Validation: $FOLDER_VALIDATION"
+          echo "Smoke File: $SMOKE_FILE"
+          echo "Acceptance File: $ACCEPTANCE_FILE"
+          echo "No AG: $NO_AG"
+          echo "Service Port: $SERVICE_PORT"
+          
       - name: Echo Environment Variables
         run: |
           echo "absolutePathFolder=${{ env.absolutePathFolder }}"
