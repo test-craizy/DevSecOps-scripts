@@ -27,10 +27,10 @@ jobs:
           path: devsecops-scripts  
           ref: main
           fetch-depth: 0
-          
+
       - name: Grant Execute Permissions to Build Script
         run: chmod +x devsecops-scripts/scripts/build/build.sh
 
-      - name: Build Process
+      - name: run build
         run: devsecops-scripts/scripts/build/build.sh ${{ inputs.componente }}
        

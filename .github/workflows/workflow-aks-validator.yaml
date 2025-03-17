@@ -31,5 +31,5 @@ jobs:
       - name: Grant Execute Permissions
         run: chmod +x devsecops-scripts/scripts/validator/validator.sh
 
-      - name: Build Process
-        run: ./scripts/validator/validator.sh ${{ inputs.componente }}
+      - name: run validator
+        run: devsecops-scripts/scripts/validator/validator.sh ${{ inputs.componente }}

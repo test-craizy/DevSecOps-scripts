@@ -11,7 +11,7 @@ on:
       gh_token:
         description: "GitHub Token para autenticación"
         required: true
-        
+
 jobs:
   rollback:
     runs-on: ubuntu-latest
@@ -31,5 +31,5 @@ jobs:
       - name: Grant Execute Permissions
         run: chmod +x devsecops-scripts/scripts/rollback/rollback.sh
 
-      - name: Build Process
+      - name: run rollback
         run: devsecops-scripts/scripts/rollback/rollback.sh ${{ inputs.componente }}
