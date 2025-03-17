@@ -122,5 +122,5 @@ jobs:
         run: chmod +x devsecops-scripts/scripts/build/build.sh
 
       - name: run build
-        run: devsecops-scripts/scripts/build/build.sh ${{ inputs.componente }}
+        run: devsecops-scripts/scripts/build/build.sh
        
