@@ -12,16 +12,16 @@ jobs:
   build:
     uses: ./.github/workflows/workflow-aks-build.yaml
     with:
-      componente: "build-component"
+      componente: ${{ inputs.componente }}
 
   deploy:
     uses: ./.github/workflows/workflow-aks-deploy.yaml
     needs: build
     with:
-      componente: "deploy-component"
+      componente: ${{ inputs.componente }}
 
   validate:
     uses: ./.github/workflows/workflow-aks-validator.yaml
     needs: deploy
     with:
-      componente: "validate-component"
+      componente: ${{ inputs.componente }}
