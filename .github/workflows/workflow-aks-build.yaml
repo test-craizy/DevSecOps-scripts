@@ -16,17 +16,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+      
       - name: Checkout Repository (DevSecOps-scripts)
         uses: actions/checkout@v3
         with:
           repository: test-craizy/DevSecOps-scripts
           token: ${{ secrets.gh_token }}
-          path: DevSecOps-scripts
+          # path: DevSecOps-scripts
           ref: main
           fetch-depth: 0
-
-      - name: Checkout Code
-        uses: actions/checkout@v3
 
       - name: Debug - Verificar estructura de archivos
         run: ls -R
