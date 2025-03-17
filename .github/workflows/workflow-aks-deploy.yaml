@@ -84,5 +84,5 @@ jobs:
           ref: main
           fetch-depth: 0
 
-      - name: run deploy
-        run: chmod +x devsecops-scripts/scripts/aks/deploy/deploy.sh && devsecops-scripts/scripts/aks/deploy/deploy.sh
+      # - name: run deploy
+      #   run: chmod +x devsecops-scripts/scripts/aks/deploy/deploy.sh && devsecops-scripts/scripts/aks/deploy/deploy.sh
