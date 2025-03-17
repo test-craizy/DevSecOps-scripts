@@ -86,7 +86,7 @@ jobs:
           fetch-depth: 0
           
       - name: Grant Execute Permissions
-        run: chmod +x devsecops-scripts/scripts/validator/validator.sh
+        run: chmod +x devsecops-scripts/scripts/aks/validator/validator.sh
 
       - name: run validator
-        run: devsecops-scripts/scripts/validator/validator.sh
+        run: devsecops-scripts/scripts/validator/aks/validator.sh
