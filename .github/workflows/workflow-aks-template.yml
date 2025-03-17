@@ -25,9 +25,13 @@ jobs:
     needs: template-build
     with:
       componente: ${{ inputs.componente }}
+    secrets:
+      gh_token: ${{ secrets.gh_token }}
 
   template-validator:
     uses: ./.github/workflows/workflow-aks-validator.yaml
     needs: template-deploy
     with:
       componente: ${{ inputs.componente }}
+    secrets:
+      gh_token: ${{ secrets.gh_token }}
