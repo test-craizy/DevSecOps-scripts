@@ -24,7 +24,7 @@ jobs:
         with:
           repository: test-craizy/DevSecOps-scripts
           token: ${{ secrets.gh_token }}
-          # path: DevSecOps-scripts
+          path: devops  
           ref: main
           fetch-depth: 0
 
