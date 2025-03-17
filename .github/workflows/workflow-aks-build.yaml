@@ -27,18 +27,9 @@ jobs:
           path: devsecops-scripts  
           ref: main
           fetch-depth: 0
+
       - name: Set parameters
-        run: |
-          echo "NOMBRE=$(echo '${{ inputs.componente }}' | jq -r '.nombre')" >> $GITHUB_ENV
-          echo "NAMESPACE=$(echo '${{ inputs.componente }}' | jq -r '.namespace')" >> $GITHUB_ENV
-          echo "AKS=$(echo '${{ inputs.componente }}' | jq -r '.aks')" >> $GITHUB_ENV
-          echo "SQUAD=$(echo '${{ inputs.componente }}' | jq -r '.squad')" >> $GITHUB_ENV
-          echo "REPO_VALIDATION=$(echo '${{ inputs.componente }}' | jq -r '.repoValidation')" >> $GITHUB_ENV
-          echo "FOLDER_VALIDATION=$(echo '${{ inputs.componente }}' | jq -r '.folderValidation')" >> $GITHUB_ENV
-          echo "SMOKE_FILE=$(echo '${{ inputs.componente }}' | jq -r '.smokeFile')" >> $GITHUB_ENV
-          echo "ACCEPTANCE_FILE=$(echo '${{ inputs.componente }}' | jq -r '.acceptanceFile')" >> $GITHUB_ENV
-          echo "NO_AG=$(echo '${{ inputs.componente }}' | jq -r '.noAG')" >> $GITHUB_ENV
-          echo "SERVICE_PORT=$(echo '${{ inputs.componente }}' | jq -r '.servicePort')" >> $GITHUB_ENV
+        run: chmod +x devsecops-scripts/utils/set-parameters.sh && devsecops-scripts/utils/set-parameters.sh ${{ inputs.componente }}
 
       - name: Set Environment Variables
         run: |
