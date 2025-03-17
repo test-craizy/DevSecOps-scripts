@@ -84,8 +84,5 @@ jobs:
           ref: main
           fetch-depth: 0
 
-      - name: Grant Execute Permissions
-        run: 
-
       - name: run deploy
         run: chmod +x devsecops-scripts/scripts/aks/deploy/deploy.sh && devsecops-scripts/scripts/aks/deploy/deploy.sh
