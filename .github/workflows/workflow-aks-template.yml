@@ -22,12 +22,12 @@ jobs:
 
   template-deploy:
     uses: ./.github/workflows/workflow-aks-deploy.yaml
-    needs: build
+    needs: template-build
     with:
       componente: ${{ inputs.componente }}
 
   template-validator:
     uses: ./.github/workflows/workflow-aks-validator.yaml
-    needs: deploy
+    needs: template-deploy
     with:
       componente: ${{ inputs.componente }}
