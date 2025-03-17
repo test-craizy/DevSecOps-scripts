@@ -24,7 +24,7 @@ jobs:
         with:
           repository: test-craizy/DevSecOps-scripts
           token: ${{ secrets.gh_token }}
-          path: devops  
+          path: devsecops-scripts  
           ref: main
           fetch-depth: 0
 
@@ -32,5 +32,5 @@ jobs:
         run: ls -R
 
       - name: Build Process
-        run: DevSecOps-scripts/scripts/build/build.sh ${{ inputs.componente }}
+        run: devsecops-scripts/scripts/build/build.sh ${{ inputs.componente }}
        
