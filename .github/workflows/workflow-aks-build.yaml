@@ -121,5 +121,5 @@ jobs:
           echo "manifestsFolderName=${{ env.manifestsFolderName }}"
 
       - name: run build
-        run: chmod +x ${{ env.AKS_SCRIPT_PATH }}/aks/build/build.sh && ${{ env.AKS_SCRIPT_PATH }}/aks/build/build.sh
+        run: chmod +x ${{ env.AKS_SCRIPT_PATH }}/aks/validator/validate-parameters.sh && ${{ env.AKS_SCRIPT_PATH }}/aks/validator/validate-parameters.sh
        
