@@ -3,10 +3,67 @@ name: AKS Workflow Template
 on:
   workflow_call:
     inputs:
-      componente:
-        description: "Nombre del componente a construir"
-        type: string
+      nombre:
+        description: 'Nombre del microservicio'
         required: true
+        type: string
+      namespace:
+        description: 'Namespace de Kubernetes'
+        required: true
+        type: string
+      aks:
+        description: 'Nombre del cluster AKS'
+        required: true
+        type: string
+      squad:
+        description: 'Nombre del squad'
+        required: true
+        type: string
+      repoValidation:
+        description: 'Repositorio de validaciones'
+        required: false
+        type: string
+        default: ''
+      folderValidation:
+        description: 'Carpeta de validaciones'
+        required: false
+        type: string
+        default: ''
+      smokeFile:
+        description: 'Nombre del archivo de pruebas de humo'
+        required: false
+        type: string
+        default: 'smoke_test.postman_collection.json'
+      acceptanceFile:
+        description: 'Nombre del archivo de pruebas de aceptación'
+        required: false
+        type: string
+        default: 'acceptance_test.postman_collection.json'
+      noAG:
+        description: 'Indica si no se utiliza API Gateway'
+        required: false
+        type: boolean
+        default: false
+      servicePort:
+        description: 'Puerto del servicio'
+        required: false
+        type: string
+        default: '8080'
+      certificate_hv:
+        description: 'Certificado HV'
+        required: false
+        type: string
+        default: ''
+      certificate_ag:
+        description: 'Certificado AG'
+        required: false
+        type: string
+        default: ''
+      certificate_ca:
+        description: 'Certificado CA'
+        required: false
+        type: string
+        default: ''
     secrets:
       gh_token:
         description: "GitHub Token para autenticación"
@@ -16,7 +73,19 @@ jobs:
   template-build:
     uses: ./.github/workflows/workflow-aks-build.yaml
     with:
-      componente: ${{ inputs.componente }}
+      nombre: ${{ inputs.nombre }}
+      namespace: ${{ inputs.namespace }}
+      aks: ${{ inputs.aks }}
+      squad: ${{ inputs.squad }}
+      repoValidation: ${{ inputs.repoValidation }}
+      folderValidation: ${{ inputs.folderValidation }}
+      smokeFile: ${{ inputs.smokeFile }}
+      acceptanceFile: ${{ inputs.acceptanceFile }}
+      noAG: ${{ inputs.noAG }}
+      servicePort: ${{ inputs.servicePort }}
+      certificate_hv: ${{ inputs.certificate_hv }}
+      certificate_ag: ${{ inputs.certificate_ag }}
+      certificate_ca: ${{ inputs.certificate_ca }}
     secrets:
       gh_token: ${{ secrets.gh_token }}
 
@@ -24,7 +93,19 @@ jobs:
     uses: ./.github/workflows/workflow-aks-deploy.yaml
     needs: template-build
     with:
-      componente: ${{ inputs.componente }}
+      nombre: ${{ inputs.nombre }}
+      namespace: ${{ inputs.namespace }}
+      aks: ${{ inputs.aks }}
+      squad: ${{ inputs.squad }}
+      repoValidation: ${{ inputs.repoValidation }}
+      folderValidation: ${{ inputs.folderValidation }}
+      smokeFile: ${{ inputs.smokeFile }}
+      acceptanceFile: ${{ inputs.acceptanceFile }}
+      noAG: ${{ inputs.noAG }}
+      servicePort: ${{ inputs.servicePort }}
+      certificate_hv: ${{ inputs.certificate_hv }}
+      certificate_ag: ${{ inputs.certificate_ag }}
+      certificate_ca: ${{ inputs.certificate_ca }}
     secrets:
       gh_token: ${{ secrets.gh_token }}
 
@@ -32,6 +113,18 @@ jobs:
     uses: ./.github/workflows/workflow-aks-validator.yaml
     needs: template-deploy
     with:
-      componente: ${{ inputs.componente }}
+      nombre: ${{ inputs.nombre }}
+      namespace: ${{ inputs.namespace }}
+      aks: ${{ inputs.aks }}
+      squad: ${{ inputs.squad }}
+      repoValidation: ${{ inputs.repoValidation }}
+      folderValidation: ${{ inputs.folderValidation }}
+      smokeFile: ${{ inputs.smokeFile }}
+      acceptanceFile: ${{ inputs.acceptanceFile }}
+      noAG: ${{ inputs.noAG }}
+      servicePort: ${{ inputs.servicePort }}
+      certificate_hv: ${{ inputs.certificate_hv }}
+      certificate_ag: ${{ inputs.certificate_ag }}
+      certificate_ca: ${{ inputs.certificate_ca }}
     secrets:
       gh_token: ${{ secrets.gh_token }}
