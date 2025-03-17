@@ -53,17 +53,17 @@ on:
         description: 'Certificado HV'
         required: false
         type: string
-        default: ''
+        default: null
       certificate_ag:
         description: 'Certificado AG'
         required: false
         type: string
-        default: ''
+        default: null
       certificate_ca:
         description: 'Certificado CA'
         required: false
         type: string
-        default: ''
+        default: null
     secrets:
       gh_token:
         description: "GitHub Token para autenticación"
