@@ -24,10 +24,10 @@ echo "jdkArchitectureOption=x64" >> $GITHUB_ENV
 echo "publishJUnitResults=true" >> $GITHUB_ENV
 
 # Set the script path
-echo "scriptPath=devops-scripts/azure-devops/templates/scripts" >> $GITHUB_ENV
+echo "scriptPath=devsecops-scripts/utils/" >> $GITHUB_ENV
 
 # Set the AKS script path
-echo "AKS_SCRIPT_PATH=devops-scripts/azure-devops/templates/aks/private/scripts" >> $GITHUB_ENV
+echo "AKS_SCRIPT_PATH=devsecops-scripts/scripts/build" >> $GITHUB_ENV
 
 # Set the certificadoHV variable
 if [ -n "$COMPONENTE_CERT_HV" ]; then

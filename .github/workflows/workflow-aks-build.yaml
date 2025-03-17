@@ -66,8 +66,8 @@ jobs:
 
 
       - name: Grant Execute Permissions to Build Script
-        run: chmod +x devsecops-scripts/scripts/build/build.sh
+        run: chmod +x ${{ env.AKS_SCRIPT_PATH }}/build.sh
 
       - name: run build
-        run: devsecops-scripts/scripts/build/build.sh
+        run: ${{ env.AKS_SCRIPT_PATH }}/build.sh
        
