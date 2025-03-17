@@ -1,0 +1,1 @@
+echo "Run build.sh script successfully"
