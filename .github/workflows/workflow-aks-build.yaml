@@ -2,13 +2,14 @@ name: Reusable AKS Build Workflow
 
 on:
   workflow_call:
-    secrets:
-      token:
-        required: true
     inputs:
       componente:
         description: "Nombre del componente a construir"
         type: string
+        required: true
+    secrets:
+      gh_token:
+        description: "GitHub Token para autenticación"
         required: true
 
 jobs:

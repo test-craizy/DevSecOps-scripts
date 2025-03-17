@@ -2,30 +2,36 @@ name: AKS Workflow Template
 
 on:
   workflow_call:
-    secrets:
-      token:
-        required: true
     inputs:
       componente:
         description: "Nombre del componente a construir"
         type: string
         required: true
+    secrets:
+      gh_token:
+        description: "GitHub Token para autenticación"
+        required: true
 
 jobs:
   build:
-    uses: ./.github/workflows/workflow-aks-build.yaml
+    uses: test-craizy/DevSecOps-scripts/.github/workflows/workflow-aks-build.yml@main
     with:
       componente: ${{ inputs.componente }}
-      token: ${{ secrets.token }}
+    secrets:
+      gh_token: ${{ secrets.gh_token }}
 
   deploy:
-    uses: ./.github/workflows/workflow-aks-deploy.yaml
+    uses: test-craizy/DevSecOps-scripts/.github/workflows/workflow-aks-deploy.yml@main
     needs: build
     with:
       componente: ${{ inputs.componente }}
+    # secrets:
+    #   gh_token: ${{ secrets.gh_token }}
 
   validate:
-    uses: ./.github/workflows/workflow-aks-validator.yaml
+    uses: test-craizy/DevSecOps-scripts/.github/workflows/workflow-aks-validator.yml@main
     needs: deploy
     with:
       componente: ${{ inputs.componente }}
+    # secrets:
+    #   gh_token: ${{ secrets.gh_token }}
