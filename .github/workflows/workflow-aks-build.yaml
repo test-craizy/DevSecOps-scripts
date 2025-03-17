@@ -1,4 +1,4 @@
-name: 🏗 Reusable AKS Build Workflow
+name: Reusable AKS Build Workflow
 
 on:
   workflow_call:
@@ -16,5 +16,5 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Build Process
-        run: ./scripts/build.sh ${{ inputs.componente }}
+        run: ./scripts/build/build.sh ${{ inputs.componente }}
        

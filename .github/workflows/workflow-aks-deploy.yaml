@@ -1,4 +1,4 @@
-name: 🏗 Reusable AKS deploy Workflow
+name: Reusable AKS deploy Workflow
 
 on:
   workflow_call:
@@ -9,11 +9,11 @@ on:
         required: true
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
 
       - name: Build Process
-        run: echo "🏗 deploy Successful for AKS! Component: ${{ inputs.componente }}"
+        run: ./scripts/deploy/deploy.sh ${{ inputs.componente }}

@@ -1,4 +1,4 @@
-name: 🏗 Reusable AKS validator Workflow
+name: Reusable AKS validator Workflow
 
 on:
   workflow_call:
@@ -9,11 +9,11 @@ on:
         required: true
 
 jobs:
-  build:
+  validator:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
 
       - name: Build Process
-        run: echo "🏗 validator Successful for AKS! Component: ${{ inputs.componente }}"
+        run: ./scripts/validator/validator.sh ${{ inputs.componente }}

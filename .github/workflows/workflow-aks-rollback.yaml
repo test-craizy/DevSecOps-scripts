@@ -1,4 +1,4 @@
-name: 🏗 Reusable AKS rollback Workflow
+name: Reusable AKS rollback Workflow
 
 on:
   workflow_call:
@@ -9,11 +9,11 @@ on:
         required: true
 
 jobs:
-  build:
+  rollback:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
 
       - name: Build Process
-        run: echo "🏗 rollback Successful for AKS! Component: ${{ inputs.componente }}"
+        run: ./scripts/rollback/rollback.sh ${{ inputs.componente }}
